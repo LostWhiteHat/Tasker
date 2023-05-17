@@ -2,7 +2,7 @@
 Something about the code
 
 ## Todo
-❌ sort stuff
+✔️ sort stuff
 
 ✔️ ReBase code
 
