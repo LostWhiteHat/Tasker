@@ -24,7 +24,7 @@ void write_task_to_file(const std::string &task)
 	std::cout << "Done!\n";
 }
 
-bool write_tasks(std::vector<std::string> tasks, int task_id)
+bool write_tasks(std::vector<std::string> tasks, const int task_id)
 {
 	std::fstream file(get_file_path(), std::ios::out | std::ios::app);
 	if (!file)
@@ -35,7 +35,8 @@ bool write_tasks(std::vector<std::string> tasks, int task_id)
 
 	for (int i = 0; i < tasks.size(); i++)
 	{
-		file << tasks[i];
+		if (i != task_id-1)
+			file << tasks[i] << "\n";	
 	}
 	file.close();
 	return true;

@@ -6,5 +6,7 @@ Something about the code
 
 ✔️ ReBase code
 
-❌ Delete a item with index number
+✔️ Delete a item with index number
+
+❌ Create QT UI
 

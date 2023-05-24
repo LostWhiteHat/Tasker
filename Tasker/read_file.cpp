@@ -1,6 +1,6 @@
 #include "config.h"
+#include "delete_file.h"
 #include "read_file.h"
-#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -46,9 +46,9 @@ std::vector<std::string> get_tasks()
 	{
 		tasks.push_back(text);
 	}
-
-	if (std::remove(get_file_path().c_str()))
+	file.close();
+	if (delete_file())
 		return tasks;
-	
-	std::cerr << "Task file couldn't be deleted.";
+
+	exit(1);
 }

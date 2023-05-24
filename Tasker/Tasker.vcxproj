@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="config.cpp" />
+    <ClCompile Include="delete_file.cpp" />
     <ClCompile Include="delete_task.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="parameter_handler.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
+    <ClInclude Include="delete_file.h" />
     <ClInclude Include="delete_task.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="parameter_handler.h" />

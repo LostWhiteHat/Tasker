@@ -3,7 +3,6 @@
 #include "write_file.h"
 #include <iostream>
 #include <string>
-#include <vector>
 
 const std::string temp_file_path{"./temp_task_save.dat"};
 
@@ -13,7 +12,10 @@ const std::string temp_file_path{"./temp_task_save.dat"};
  */
 void delete_task(int task_id)
 {
-	const std::vector tasks{get_tasks()};
-	write_tasks(tasks, task_id);
-	std::cout << "Task successful deleted";
+	if (write_tasks(get_tasks(), task_id))
+	{
+		std::cout << "Task successful deleted";
+		return;
+	}
+	std::cerr << "An error occurred";
 }
