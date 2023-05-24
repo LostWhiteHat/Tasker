@@ -1,4 +1,3 @@
-#include "config.h"
 #include "delete_file.h"
 #include <filesystem>
 #include <iostream>
