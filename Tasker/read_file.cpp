@@ -1,12 +1,14 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include "read_file.h"
 #include "config.h"
+#include "read_file.h"
+#include <cstdio>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 
 
 /**
- * \brief The Function reads the task written in the File located at the file_path
+ * \brief The Function reads the task written in the File located at the file_path declared in the config file
  */
 void read_tasks()
 {
@@ -15,14 +17,38 @@ void read_tasks()
 	if (!file)
 	{
 		std::cerr << "No ToDoList file found.";
+		return;
 	}
-	else
+
+	int counter{1};
+	while (getline(file, text))
 	{
-		int counter{1};
-		while (getline(file, text))
-		{
-			std::cout << "[ " << counter << " ] " << text << '\n';
-			++counter;
-		}
-	}	
+		std::cout << "[ " << counter << " ] " << text << '\n';
+		++counter;
+	}
+}
+
+/**
+ * \brief the function gets all task and returns a vector with them
+ * \return vectpr of the task strings
+ */
+std::vector<std::string> get_tasks()
+{
+	std::vector<std::string> tasks;
+	std::ifstream file(get_file_path());
+	if (!file)
+	{
+		std::cerr << "File doesn't exist";
+		exit(1);
+	}
+	std::string text;
+	while (getline(file, text))
+	{
+		tasks.push_back(text);
+	}
+
+	if (std::remove(get_file_path().c_str()))
+		return tasks;
+	
+	std::cerr << "Task file couldn't be deleted.";
 }

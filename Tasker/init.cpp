@@ -1,8 +1,8 @@
+#include "config.h"
 #include "init.h"
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "config.h"
 
 const std::string config_file_path{"./config.ini"};
 
@@ -19,6 +19,7 @@ bool validate_config()
 		std::cout << "Read the Readme.md to find your fault.\n";
 		return false;
 	}
+
 	read_config_file(config_file_path);
 	return true;
 	

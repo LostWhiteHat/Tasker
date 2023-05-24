@@ -1,8 +1,9 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include "write_file.h"
 #include "config.h"
+#include "write_file.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 
 /**
  * \brief The function write a line for every task input into a file
@@ -14,12 +15,28 @@ void write_task_to_file(const std::string &task)
 	if (!file)
 	{
 		std::cerr << "File does not exist\n";
+		return;
 	}
-	else
+
+	std::cout << "Writing task to file...\n";
+	file << task << "\n";
+	file.close();
+	std::cout << "Done!\n";
+}
+
+bool write_tasks(std::vector<std::string> tasks, int task_id)
+{
+	std::fstream file(get_file_path(), std::ios::out | std::ios::app);
+	if (!file)
 	{
-		std::cout << "Writing task to file...\n";
-		file << task << "\n";
-		file.close();
-		std::cout << "Done!\n";
-	}	
+		std::cerr << "File does not exist\n";
+		return false;
+	}
+
+	for (int i = 0; i < tasks.size(); i++)
+	{
+		file << tasks[i];
+	}
+	file.close();
+	return true;
 }

@@ -1,8 +1,10 @@
-#include <iostream>
-#include "write_file.h"
+#include "delete_task.h"
+#include "parameter_handler.h"
 #include "read_file.h"
 #include "ui.h"
-#include "parameter_handler.h"
+#include "write_file.h"
+#include <iostream>
+#include <string>
 
 
 /**
@@ -27,6 +29,12 @@ void parameter_handler(const int argc, char** argv)
 	else if (arg_parameter == "-o")
 	{
 		read_tasks();
+	}
+	else if (arg_parameter == "-d")
+	{
+		const std::string arg_task{argv[2]};
+		const int task_id = stoi(arg_task);
+		delete_task(task_id);
 	}
 	else if (arg_parameter == "-h" || arg_parameter == "--help")
 	{

@@ -1,7 +1,7 @@
-#include <cstdlib>
-#include "ui.h"
 #include "init.h"
 #include "parameter_handler.h"
+#include "ui.h"
+#include <cstdlib>
 
 int main(const int argc, char** argv)
 {
