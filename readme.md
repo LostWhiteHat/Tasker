@@ -12,5 +12,3 @@ The Tasker is my first c++ project. I followed the c++20 standards.
 
 ✔️ Delete a item with index number
 
-❌ Create QT UI
-
