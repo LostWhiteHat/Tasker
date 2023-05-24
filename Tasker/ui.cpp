@@ -30,7 +30,9 @@ void open_user_interface()
  */
 void open_user_help()
 {
-	std::cout << "usage:\n";
-	std::cout << "	[-i] <task input>\n";
-	std::cout << "	[-o] task output\n";
+	std::cout << "usage:	./Tasker.exe <parameter>\n\n";
+	std::cout << "options:\n";
+	std::cout << "	[-d] <index number>	deletes a task\n";
+	std::cout << "	[-i] <task input>	inserts a task\n";
+	std::cout << "	[-o]			shows the tasks already inserted\n";
 }
